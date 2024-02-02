@@ -12,8 +12,8 @@
 <div>
   <% if user_signed_in? && (current_user.id == @post.user_id) %>
     <div>
-    <%= button_to "Destroy this post", @post, method: :delete %>
-    <%= button_to "Edit this post", edit_post_path(@post) %>
+    <%= button_to "Destroy this post", @post, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+    <%= link_to "Edit this post", edit_post_path(@post) %>
     </div>
   <% end %>
 
